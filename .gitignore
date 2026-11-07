@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# Local secrets and editor files
+.env
+.env.*
+!.env.example
+kaggle.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large datasets, archives, and generated model artifacts
+data/
+datasets/
+Vegetable Images/
+*.zip
+*.tar
+*.gz
+*.7z
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+*.webp
+*.tif
+*.tiff
+*.h5
+*.keras
+*.pt
+*.pth
+checkpoints/
+outputs/
