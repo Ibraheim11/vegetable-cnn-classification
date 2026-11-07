@@ -13,13 +13,7 @@ Phase 1 establishes a reproducible project and explores the class distribution o
 
 1. Create a Kaggle notebook and import `notebooks/vegetable_cnn_classification.ipynb`.
 2. Use **Add Input** to attach the dataset linked above.
-3. Confirm these directories exist in the notebook's input browser:
-
-   ```text
-   /kaggle/input/vegetable-image-dataset/Vegetable Images/train
-   /kaggle/input/vegetable-image-dataset/Vegetable Images/test
-   /kaggle/input/vegetable-image-dataset/Vegetable Images/validation
-   ```
+3. Check that the attached dataset contains `train`, `test`, and `validation` folders. The notebook detects their common parent automatically under `/kaggle/input`, even if Kaggle mounts an extra nesting level. If no unique match exists, inspect the Input browser and correct the selected dataset.
 
 4. Run all cells in order. A GPU is unnecessary. Kaggle normally provides the required libraries; install `requirements.txt` only if dependencies are missing.
 5. Review split totals, detected classes, the merged count table, the grouped chart, and the balance report generated from observed counts.
