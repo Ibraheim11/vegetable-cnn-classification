@@ -2,14 +2,17 @@
 
 ## Provenance
 
-The figures below are **observed model outputs** from the user's completed Kaggle notebook execution, shared as screenshots after training. They are not simulated, estimated, or copied from model code. The screenshot-shared numbers are rounded to four decimal places unless otherwise noted. The original exact CSV exports are stored in the user's Kaggle session, not attached to this repository.
+These results were verified directly against the user's uploaded executed Kaggle notebook `notebooke3773b98ea.ipynb`, not solely against screenshots. The file contains 34 notebook cells, 16 code cells with execution counts, and no error outputs; `nbformat.validate` and code-syntax checks passed.
 
-- Kaggle notebook: [Vegetable CNN run](https://www.kaggle.com/code/ibrahemasharf/notebook3773b98ea) (**visibility of this Kaggle version has not been independently confirmed**).
+- [Recovered 20-epoch history CSV](training_history_recovered_from_notebook.csv) — actual progress-line values (four decimal places)
+- [Recovered final evaluation metrics CSV](evaluation_metrics_recovered_from_notebook.csv) — printed evaluation values (four decimal places)
+- [Detailed evidence and limitations](notebook_evidence.md)
+- Kaggle notebook: [Vegetable CNN run](https://www.kaggle.com/code/ibrahemasharf/notebook3773b98ea) (public access must be enabled by the owner).
 - Notebook code: [vegetable_cnn_classification.ipynb](../notebooks/vegetable_cnn_classification.ipynb)
 - Kaggle runtime: TensorFlow 2.21.0; two GPU devices detected.
 - Dataset: Vegetable Image Dataset by misrakahmed.
-- Training duration: **20 epochs** (the maximum configured); EarlyStopping was enabled but did not halt training early.
-- Best observed monitored validation loss during training: **0.05724012851715088**. With `restore_best_weights=True`, the final evaluation uses the restored best weights.
+- Training duration: **20 epochs**. EarlyStopping was enabled but did not halt training early.
+- Minimum monitored validation loss during training: **0.05724012851715088**; `restore_best_weights=True` restored best weights for the final evaluations.
 
 ## Dataset and sampling
 
@@ -48,4 +51,4 @@ The 15 classes are balanced by image count. The specified `validation_split=0.2`
 
 The screenshots show the completed training history, training/internal-validation evaluation, accuracy/loss curves, independent holdout evaluation, and successful creation of `/kaggle/working/evaluation_metrics.csv` and `/kaggle/working/training_history.csv`.
 
-This document is a **human-verified transcription of visible output**, not an automatically downloaded Kaggle artifact. The two original CSV files and an executed Kaggle notebook version should be saved and made accessible separately. The source notebook in this repository intentionally has blank output cells, so metrics are presented here with transparent provenance instead of altering its execution state.
+The user's complete executed Kaggle notebook was uploaded and inspected directly, including its numeric and figure outputs. The original exported Kaggle CSV bytes are absent from that notebook; the recovered CSVs in this repository are labeled accordingly. The source notebook in this repository intentionally keeps its output cells blank, so experimental evidence is linked separately.
