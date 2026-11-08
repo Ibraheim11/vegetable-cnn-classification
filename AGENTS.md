@@ -1,10 +1,11 @@
 # Project conventions
 
-- Scope is Phase 1: project setup and exploratory class-distribution analysis only. Do not add augmentation, CNNs, training, or evaluation without an explicit new request.
-- Keep the notebook's numbered English explanations clear and instructional. Import all Phase 1 libraries in the first code cell and set the random seed to 42.
-- Use the documented Kaggle train, test, and validation paths. Validate inputs before analysis; never download the dataset locally.
-- Compute statistics from observed files only. Never fabricate counts, metrics, or saved notebook outputs.
-- Keep counting deterministic, reusable, and explicit about supported extensions and nonrecursive behavior. Preserve empty classes and flag inconsistent class sets.
-- Keep dependencies minimal. Test counting using temporary synthetic files, without Kaggle data. The notebook remains the source of truth for the counting function.
-- Before delivery, run `python -m unittest discover -s tests -v` and validate notebook structure and code syntax. If available, also validate with `nbformat.validate`.
-- Do not commit or push unless explicitly requested.
+- This repository implements the **complete** CNN Vegetable Classification assignment. The notebook is the source of truth for imports, dataset EDA, preprocessing/augmentation, CNN, training, evaluation and plots.
+- Keep all library imports in the first code cell and use seed 42.
+- Follow the assignment exactly: ImageDataGenerator with rescaling and specified train-only augmentation; 224×224 images, batch 32, 15 classes, `subset="training"` and `subset="validation"` from the train directory.
+- Do not contaminate training or internal validation with the original `validation/` or `test/` directories. The latter are external holdouts.
+- The architecture must remain Sequential with three Conv2D(32,64,128) + MaxPooling blocks, Flatten, Dense(512), Dropout(0.5), and Dense(15, softmax).
+- Compile Adam/categorical_crossentropy/accuracy. Train at most 20 epochs using EarlyStopping on val_loss with patience 5 and restore_best_weights True.
+- Print actual evaluation metrics and draw real learning curves. Never fabricate model outputs or counts; empty execution outputs in the version-controlled notebook are intentional until a real Kaggle run.
+- Use Kaggle-mounted dataset paths (support nesting), do not download image datasets into Git and do not commit large artifacts.
+- Run `python -m unittest discover -s tests -v` and `nbformat.validate` when available. Static tests are **not** substitutes for a real training run on Kaggle.
