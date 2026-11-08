@@ -1,0 +1,12 @@
+metric,value,unit,source
+epochs_completed,20,epochs,Kaggle screenshot
+training_accuracy,0.9938,fraction,Kaggle screenshot
+training_loss,0.0224,loss,Kaggle screenshot
+internal_validation_accuracy,0.9847,fraction,Kaggle screenshot
+internal_validation_loss,0.0572,loss,Kaggle screenshot
+original_validation_accuracy,0.9850,fraction,Kaggle screenshot
+original_validation_loss,0.0581,loss,Kaggle screenshot
+test_accuracy,0.9840,fraction,Kaggle screenshot
+test_loss,0.0692,loss,Kaggle screenshot
+accuracy_gap_train_minus_internal_validation,0.0092,fraction,Kaggle screenshot
+best_monitored_validation_loss,0.05724012851715088,loss,Kaggle screenshot
