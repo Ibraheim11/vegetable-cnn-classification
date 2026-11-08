@@ -23,9 +23,26 @@ An academic **deep-learning computer-vision assignment** that classifies vegetab
 | Independent original validation/test holdout evaluation (extra) | 16 |
 | Real-run metrics/history CSV exports (extra) | 17 |
 
-**Important:** the **code** for the complete pipeline is in the repo. The model has **not been trained or validated end-to-end in this GitHub commit**, and no trained accuracy, model metrics, or plots are invented. Run the notebook in Kaggle and save its actual outputs to complete the experimental evidence.
+## Verified Kaggle model results
 
-## EDA observations from the prior real Kaggle run
+The model **completed training for 20 epochs** in the user's Kaggle run. These figures were read from actual output screenshots and are documented with provenance in the [experiment report](results/experiment_report.md). The version-controlled notebook contains code rather than embedded execution outputs.
+
+| Dataset evaluated | Accuracy | Loss |
+| --- | ---: | ---: |
+| Training (unaugmented evaluation) | **99.38%** | 0.0224 |
+| Internal validation | **98.47%** | 0.0572 |
+| Original validation holdout | **98.50%** | 0.0581 |
+| Final test holdout | **98.40%** | 0.0692 |
+
+- **Best validation loss during training:** `0.05724012851715088`.
+- **Training–internal validation accuracy gap:** `0.0092` (0.92 percentage points), a small gap.
+- **Model:** 44,403,791 trainable parameters; the required CNN architecture and EarlyStopping settings were used.
+- [Metrics transcribed from screenshots](results/metrics_from_screenshots.csv) are **not** substitutes for the original Kaggle-generated `evaluation_metrics.csv` and `training_history.csv` exports.
+- [Kaggle notebook used for the run](https://www.kaggle.com/code/ibrahemasharf/notebook3773b98ea) — share/public visibility and inclusion of the completed outputs have not been independently confirmed.
+
+
+
+## Dataset EDA results
 
 The previous Kaggle execution counted **21,000** image files in **15** classes:
 
@@ -46,7 +63,7 @@ The image counts were **exactly balanced within each split**. These counts come 
 5. Run all notebook cells **in order**. The dataset root is automatically discovered under `/kaggle/input`; it supports the actual nested mount path:
    `/kaggle/input/datasets/misrakahmed/vegetable-image-dataset/Vegetable Images`.
 6. Inspect generator sizes and class maps (sections 9–10), CNN summary (section 11), completed epochs (section 13), real losses/accuracies (section 14), learning curves (section 15), and original holdout metrics (section 16).
-7. Save an **executed notebook version** in Kaggle. From `/kaggle/working`, download the small `evaluation_metrics.csv` and `training_history.csv` generated after successful training. You may commit these small result files to the repo; do **not** commit the dataset or large model binaries.
+7. Save or publish the completed **executed notebook version** in Kaggle, confirming its final evaluation outputs are visible. From `/kaggle/working`, download the original `evaluation_metrics.csv` and `training_history.csv` produced in the successful run. These original files may be added to `results/` as separate files; do **not** commit the dataset or large model binaries.
 
 Kaggle already supplies many scientific packages. If `tensorflow` is missing, use a Kaggle image/environment with TensorFlow installed. `ImageDataGenerator` is a legacy API but is used here to satisfy the explicit assignment instructions.
 
@@ -72,6 +89,8 @@ Static tests check the notebook's JSON, syntax, dataset counter, assignment sett
 notebooks/vegetable_cnn_classification.ipynb
 tests/test_counting.py
 tests/test_pipeline_contract.py
+results/experiment_report.md
+results/metrics_from_screenshots.csv
 requirements.txt
 AGENTS.md
 .gitignore
@@ -84,4 +103,4 @@ README.md
 - The dataset is hosted by Kaggle and is not copied to this GitHub repository.
 - The requested architecture is relatively large; its training time and accuracy depend on the Kaggle GPU and data.
 - Train, internal validation, original validation holdout, and test are carefully separated.
-- No pretrained model or test-set tuning is used. Avoid making performance claims until the actual Kaggle run is complete.
+- No pretrained model or test-set tuning was used in the reported Kaggle run. Metrics come from the user-shared completed Kaggle output screenshots and are rounded as displayed; the original executable notebook results can be verified from the Kaggle version when published.
