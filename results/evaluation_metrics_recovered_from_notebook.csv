@@ -1,0 +1,2 @@
+train_loss,train_accuracy,internal_val_loss,internal_val_accuracy,original_val_loss,original_val_accuracy,test_loss,test_accuracy,epochs_completed
+0.0224,0.9938,0.0572,0.9847,0.0581,0.9850,0.0692,0.9840,20
